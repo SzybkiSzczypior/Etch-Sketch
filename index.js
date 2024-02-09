@@ -5,19 +5,31 @@ document.body.appendChild(container);
 const table = document.createElement("div");
 table.id="table";
 container.appendChild(table);
-const square = document.createElement("button");
+const square = document.createElement("div");
+let colorChange = "";
 
 square.id = "square";
 
-    for (let index = 0; index < 16; index++) {
+    for (let index = 0; index < 40; index++) {
         const quarter = document.createElement("div");
-       for (let index = 0; index < 16; index++) {
-        const square = document.createElement("button");
+       for (let index = 0; index < 40; index++) {
+        const square = document.createElement("div");
         //square.id = `square ${index}`;
         square.classList= "square";
         
         quarter.appendChild(square);
         table.appendChild(quarter);
+        //make colors adjustable
+        //make the canvas size adjustable
+        square.addEventListener("mousedown",function checkSquarePressed(){
+            let x =true;
+            console.log(x);
+            return x;
+        })
+        square.addEventListener("mouseover",()=>{
+            
+            square.style.backgroundColor = `blue`;
+        })
         
        }
         
@@ -25,14 +37,40 @@ square.id = "square";
    // console.log(table);
 
 })
-    function kolor(){
-      //  let square =document.getElementById("square");
-        console.log("miau");
-       // square.style.backgroundColor("blue");
-    }
-const square = document.querySelectorAll(".square")
-var squareArray = Array.prototype.slice.call( square )
-console.log(squareArray);
+let colorPickField = document.createElement("div");
+document.body.appendChild(colorPickField);
+const colors = ["blue","yellow","orange","green","red","black"];
+
+colors.forEach((item,index,arr)=>{
+    console.log(item);
+    var buttonColorChange = document.createElement("button");
+    
+    buttonColorChange.id = `${item}`
+    buttonColorChange.innerHTML = `${item}`;
+    colorPickField.appendChild(buttonColorChange);
+
+
+    var buttonColorChange = document.getElementById(`${item}`)
+    buttonColorChange.addEventListener("click",(e)=>{
+        let id = e.originalTarget.id;
+        console.log(id);
+        console.log(container.firstChild.childNodes.NodeList);
+     let   justDiggingToFindSquare = container.firstChild.childNodes;
+     console.log(justDiggingToFindSquare);
+     justDiggingToFindSquare.forEach((row)=>{
+        console.log(row.childNodes);
+        
+        row.childNodes.forEach((square)=>{
+            square.addEventListener("mouseover",()=>{
+                square.style.backgroundColor = id;
+            })
+        })
+        })
+
+})
+})
+
+
 // 
 
 //  square.addEventListener("mouseover",() =>{
