@@ -31,3 +31,15 @@ body {
     flex:1,1,auto;
     
 }
+
+#colorField {
+    font-size: 2rem;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+.color-picker {
+    display: flex;
+    flex-direction: column;
+}
