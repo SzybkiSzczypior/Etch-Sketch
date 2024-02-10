@@ -23,8 +23,8 @@ body {
     
 }
 .square {
-    height: 15px;
-    width: 15px;
+    height: 10px;
+    width: 10px;
     border: none;
     /* border-color: blue;
     border-style: solid; */
@@ -42,4 +42,29 @@ body {
 .color-picker {
     display: flex;
     flex-direction: column;
+}
+
+#canvasClearBtn {
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #9D0FEF;
+}
+
+
+#colorField i{
+    border-radius: 20px;
+    border-style: solid;
+    border-color:#9D0FEF;
+    margin-bottom:1vmax
+}
+
+.pickr{
+    padding-top:1vmax;
+    padding-bottom: 1vmax;
+    border-radius: 20px;
+    border-style: solid;
+    border-color:#9D0FEF;
+    margin-bottom:1vmax;
+    display: flex;
+    justify-content: center;
 }

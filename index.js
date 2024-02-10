@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded",function printCanvas() {
+    let canvasClearBtn = document.createElement("div");
+
     const container = document.createElement("div");
 container.id = "container";
 document.body.appendChild(container);
@@ -6,13 +8,108 @@ const table = document.createElement("div");
 table.id="table";
 container.appendChild(table);
 const square = document.createElement("div");
-let colorChange = "";
+let tableSize =32 ;
+
+let canvasEdit = document.getElementById("colorField");
+
+canvasEdit.appendChild(canvasClearBtn);
+canvasClearBtn.id= `canvasClearBtn`;
+canvasClearBtn.innerHTML = "Clear Canvas";
+canvasClearBtn.addEventListener("click", ()=>{
+    let table = document.getElementById("table");
+    let table1 = document.createElement("div");
+    table1.id = "table";
+    for (let index = 0; index < tableSize; index++) {
+        const quarter = document.createElement("div");
+       for (let index = 0; index  < tableSize ; index++) {
+        const square = document.createElement("div");
+        square.id = `square ${index}`;
+         square.classList= "square";
+        
+         quarter.appendChild(square);
+         table1.appendChild(quarter);
+        //make colors adjustable
+        //make the canvas size adjustable
+      
+         square.addEventListener("mouseover",()=>{
+            
+            square.style.backgroundColor = `blue`;
+         })
+        
+       }
+        
+    }
+    table.replaceWith(table1);
+})
+//i chose to make buttons because i think of this project as a toy
+//and you don't really want pro features in a toy, it just does it's thing and you don't have to think
+let tableDimensions = document.createElement("div");
+tableDimensions.id = "tableD";
+canvasEdit.appendChild(tableDimensions);
+let dimensionSetting1 = document.createElement("div");
+let dimensionSetting2 = document.createElement("div");
+let dimensionSetting3 = document.createElement("div");
+let dimensionSetting4 = document.createElement("div");
+let dimensionSettingSubmit = document.createElement("div");
+dimensionSettingSubmit.innerHTML = "Apply Size";
+canvasEdit.appendChild(dimensionSetting1);
+canvasEdit.appendChild(dimensionSetting2);
+canvasEdit.appendChild(dimensionSetting3);
+canvasEdit.appendChild(dimensionSetting4);
+canvasEdit.appendChild(dimensionSettingSubmit);
+dimensionSetting1.innerHTML="16x16";
+dimensionSetting1.addEventListener("click",()=>{
+    tableSize=16;
+    console.log(tableSize);
+})
+dimensionSetting2.innerHTML="32x32";
+dimensionSetting2.addEventListener("click",()=>{
+    tableSize=32;
+    console.log(tableSize);
+})
+dimensionSetting3.innerHTML="64x64";
+dimensionSetting3.addEventListener("click",()=>{
+    tableSize=64;
+    console.log(tableSize);
+})
+dimensionSetting4.innerHTML="128x128";
+dimensionSetting4.addEventListener("click",()=>{
+    tableSize=128;
+    console.log(tableSize);
+})
+dimensionSettingSubmit.addEventListener("click", ()=>{
+    let table = document.getElementById("table");
+    let table1 = document.createElement("div");
+    table1.id = "table";
+    for (let index = 0; index < tableSize; index++) {
+        const quarter = document.createElement("div");
+       for (let index = 0; index  < tableSize ; index++) {
+        const square = document.createElement("div");
+        square.id = `square ${index}`;
+         square.classList= "square";
+        
+         quarter.appendChild(square);
+         table1.appendChild(quarter);
+        //make colors adjustable
+        //make the canvas size adjustable
+      
+         square.addEventListener("mouseover",()=>{
+            
+            square.style.backgroundColor = `blue`;
+         })
+        
+       }
+        
+    }
+    table.replaceWith(table1);
+});
+
 
 square.id = "square";
 
-    for (let index = 0; index < 40; index++) {
+    for (let index = 0; index < 80; index++) {
         const quarter = document.createElement("div");
-       for (let index = 0; index < 40; index++) {
+       for (let index = 0; index < 80; index++) {
         const square = document.createElement("div");
         //square.id = `square ${index}`;
         square.classList= "square";
@@ -21,11 +118,7 @@ square.id = "square";
         table.appendChild(quarter);
         //make colors adjustable
         //make the canvas size adjustable
-        square.addEventListener("mousedown",function checkSquarePressed(){
-            let x =true;
-            console.log(x);
-            return x;
-        })
+      
         square.addEventListener("mouseover",()=>{
             
             square.style.backgroundColor = `blue`;
@@ -139,3 +232,8 @@ pickr.on('change',(color,inst)=>{
        })
 
 });
+
+
+    
+
+    
